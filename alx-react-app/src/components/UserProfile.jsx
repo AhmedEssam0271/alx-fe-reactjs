@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function UserProfile(props) {
   return (
     <div>
@@ -7,5 +9,11 @@ function UserProfile(props) {
     </div>
   );
 }
+
+UserProfile.propTypes = {
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+  bio: PropTypes.string.isRequired,
+};
 
 export default UserProfile;
