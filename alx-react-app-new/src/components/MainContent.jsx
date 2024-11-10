@@ -1,7 +1,15 @@
 function MainContent() {
   return (
-    <main>
-      <p>I love to visit New York, Paris, and Tokyo.</p>
+    <main
+      style={{
+        backgroundColor: "skyblue",
+        color: "white",
+        textAlign: "center",
+      }}
+    >
+      <p style={{ fontSize: "15px" }}>
+        I love to visit New York, Paris, and Tokyo.
+      </p>
     </main>
   );
 }
