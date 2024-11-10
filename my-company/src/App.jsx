@@ -4,13 +4,13 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
-// import Navbar from "./components/Navbar"; // (optional)
+import Navbar from "./components/Navbar"; // (optional)
 
 function App() {
   return (
     <Router>
       <div>
-        {/* Add Navbar component here (optional) */}
+        {<Navbar /> /* Add Navbar component here (optional) */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
