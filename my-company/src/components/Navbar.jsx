@@ -7,7 +7,7 @@ function Navbar() {
         backgroundColor: "#333",
         padding: "10px",
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "flex-start",
       }}
     >
       <ul
