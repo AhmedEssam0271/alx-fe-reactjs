@@ -9,7 +9,7 @@ const App = () => {
       <div className="App">
         <h1>Recipe Sharing App</h1>
         <AddRecipeForm />
-        <Routes>
+        <Routes future={{ v7_startTransition: true }}>
           <Route path="/" element={<RecipeList />} />
           <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
         </Routes>

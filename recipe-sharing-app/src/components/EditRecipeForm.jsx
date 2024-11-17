@@ -1,17 +1,15 @@
 import { useState } from "react";
-import { useRecipeStore } from "./recipeStore";
+import useRecipeStore from "./recipeStore";
 import PropTypes from "prop-types";
 
 const EditRecipeForm = ({ recipe }) => {
-  const [title, setTitle] = useState(recipe.title || ""); // Set default value if recipe is missing
-  const [description, setDescription] = useState(recipe.description || "");
-
+  const [title, setTitle] = useState(recipe.title);
+  const [description, setDescription] = useState(recipe.description);
   const updateRecipe = useRecipeStore((state) => state.updateRecipe);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const updatedRecipe = { ...recipe, title, description };
-    updateRecipe(updatedRecipe);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateRecipe({ ...recipe, title, description });
   };
 
   return (
@@ -19,14 +17,14 @@ const EditRecipeForm = ({ recipe }) => {
       <h2>Edit Recipe</h2>
       <input
         type="text"
+        placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Title"
       />
       <textarea
+        placeholder="Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        placeholder="Description"
       />
       <button type="submit">Update Recipe</button>
     </form>

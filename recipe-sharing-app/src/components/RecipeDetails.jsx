@@ -1,23 +1,24 @@
-import { useRecipeStore } from "./recipeStore";
-import { useParams } from "react-router-dom"; // Assuming react-router-dom is used
+import { useParams } from "react-router-dom";
+import useRecipeStore from "./recipeStore";
 import EditRecipeForm from "./EditRecipeForm";
 import DeleteRecipeButton from "./DeleteRecipeButton";
 
 const RecipeDetails = () => {
   const { recipeId } = useParams();
-  const recipe = useRecipeStore((state) =>
-    state.recipes.find((recipe) => recipe.id === parseInt(recipeId, 10))
-  ); // Parse ID to integer
+  const recipes = useRecipeStore((state) => state.recipes);
+  const recipe = recipes.find((recipe) => recipe.id === parseInt(recipeId, 10));
 
   return (
     <div>
-      <h1>{recipe?.title}</h1> {/* Handle potential undefined recipe */}
-      <p>{recipe?.description}</p>
-      {recipe && ( // Render edit form and delete button only if recipe exists
+      {recipe ? (
         <>
+          <h1>{recipe.title}</h1>
+          <p>{recipe.description}</p>
           <EditRecipeForm recipe={recipe} />
           <DeleteRecipeButton recipeId={recipe.id} />
         </>
+      ) : (
+        <p>Recipe not found</p>
       )}
     </div>
   );

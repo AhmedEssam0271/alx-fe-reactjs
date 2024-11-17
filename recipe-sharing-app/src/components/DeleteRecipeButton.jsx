@@ -1,10 +1,10 @@
-import { useRecipeStore } from "./recipeStore";
-import PropTypes from "prop-types";
+import useRecipeStore from "./recipeStore";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const DeleteRecipeButton = ({ recipeId }) => {
-  const navigate = useNavigate();
   const deleteRecipe = useRecipeStore((state) => state.deleteRecipe);
+  const navigate = useNavigate();
 
   const handleDelete = () => {
     if (window.confirm("Are you sure you want to delete this recipe?")) {
@@ -15,8 +15,9 @@ const DeleteRecipeButton = ({ recipeId }) => {
 
   return <button onClick={handleDelete}>Delete Recipe</button>;
 };
+
 DeleteRecipeButton.propTypes = {
-  recipeId: PropTypes.number.isRequired,
+  recipeId: PropTypes.number.isRequired, // Added prop type validation
 };
 
 export default DeleteRecipeButton;
