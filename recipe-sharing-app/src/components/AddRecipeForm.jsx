@@ -1,15 +1,14 @@
 import { useState } from "react";
 import useRecipeStore from "./recipeStore";
-import { v4 as uuidv4 } from "uuid";
 
 const AddRecipeForm = () => {
+  const addRecipe = useRecipeStore((state) => state.addRecipe);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const addRecipe = useRecipeStore((state) => state.addRecipe);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    addRecipe({ id: uuidv4(), title, description });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addRecipe({ id: Date.now(), title, description });
     setTitle("");
     setDescription("");
   };
@@ -18,14 +17,14 @@ const AddRecipeForm = () => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        placeholder="Title"
       />
       <textarea
-        placeholder="Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
+        placeholder="Description"
       />
       <button type="submit">Add Recipe</button>
     </form>
