@@ -1,25 +1,29 @@
-import { useRecipeStore } from "./recipeStore";
+// src/components/FavoritesList.jsx
+import { useEffect, useState } from "react";
+import useRecipeStore from "../recipeStore";
 
 const FavoritesList = () => {
-  const favorites = useRecipeStore((state) =>
-    state.favorites.map((id) =>
-      state.recipes.find((recipe) => recipe.id === id)
-    )
-  );
+  const recipes = useRecipeStore((state) => state.recipes);
+  const favoritesIds = useRecipeStore((state) => state.favorites);
+
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    const favoriteRecipes = favoritesIds.map((id) =>
+      recipes.find((recipe) => recipe.id === id)
+    );
+    setFavorites(favoriteRecipes);
+  }, [favoritesIds, recipes]);
 
   return (
     <div>
       <h2>My Favorites</h2>
-      {favorites.length > 0 ? (
-        favorites.map((recipe) => (
-          <div key={recipe.id}>
-            <h3>{recipe.title}</h3>
-            <p>{recipe.description}</p>
-          </div>
-        ))
-      ) : (
-        <p>You have no favorite recipes yet.</p>
-      )}
+      {favorites.map((recipe) => (
+        <div key={recipe.id}>
+          <h3>{recipe.title}</h3>
+          <p>{recipe.description}</p>
+        </div>
+      ))}
     </div>
   );
 };
