@@ -1,30 +1,30 @@
-import { useState } from "react";
-import useRecipeStore from "./recipeStore";
-import PropTypes from "prop-types";
+// src/components/EditRecipeForm.jsx
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+import useRecipeStore from '../recipeStore';
 
 const EditRecipeForm = ({ recipe }) => {
+  const updateRecipe = useRecipeStore(state => state.updateRecipe);
   const [title, setTitle] = useState(recipe.title);
   const [description, setDescription] = useState(recipe.description);
-  const updateRecipe = useRecipeStore((state) => state.updateRecipe);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     updateRecipe({ ...recipe, title, description });
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Edit Recipe</h2>
       <input
         type="text"
-        placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        placeholder="Title"
       />
       <textarea
-        placeholder="Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
+        placeholder="Description"
       />
       <button type="submit">Update Recipe</button>
     </form>
