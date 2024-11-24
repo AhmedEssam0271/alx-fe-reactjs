@@ -1,15 +1,14 @@
-// .eslintrc.cjs
 module.exports = {
   env: {
     browser: true,
     es2021: true,
     node: true,
-    "jest/globals": true, // Add Jest globals here
+    "jest/globals": true,
   },
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:jest/recommended", // Add this line to extend recommended Jest rules
+    "plugin:jest/recommended",
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -18,10 +17,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: [
-    "react",
-    "jest", // Add this line
-  ],
+  plugins: ["react", "jest"],
   rules: {
     "no-unused-vars": [
       "error",
