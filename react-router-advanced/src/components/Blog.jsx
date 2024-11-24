@@ -4,9 +4,13 @@ import BlogPost from "./BlogPost";
 
 const Blog = () => {
   return (
-    <Routes>
-      <Route path="post/:postId" element={<BlogPost />} />
-    </Routes>
+    <div>
+      <h2>Blog</h2>
+      {/* Other blog-related components can be added here */}
+      <Routes>
+        <Route path="post/:postId" element={<BlogPost />} />
+      </Routes>
+    </div>
   );
 };
 
