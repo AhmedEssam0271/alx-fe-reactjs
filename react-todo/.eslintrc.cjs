@@ -3,12 +3,12 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
-    "jest/globals": true,
+    "jest/globals": true, // This line is critical for Jest
   },
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:jest/recommended",
+    "plugin:jest/recommended", // This line extends Jest recommended rules
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -17,7 +17,10 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "jest"],
+  plugins: [
+    "react",
+    "jest", // Ensure Jest plugin is included
+  ],
   rules: {
     "no-unused-vars": [
       "error",
