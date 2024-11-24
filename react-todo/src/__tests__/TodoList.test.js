@@ -1,6 +1,7 @@
-// import React from "react";
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom";
+import "@testing-library/jest-dom"; // Correct import statement
 import TodoList from "../components/TodoList";
 
 test("initial render of TodoList", () => {
