@@ -43,14 +43,14 @@ function RecipeDetail() {
       </ul>
       <h2 className="text-2xl font-bold mb-2">Cooking instructions</h2>
       <ol className="list-decimal list-inside">
-        {recipe.steps ? (
-          recipe.steps.map((step, index) => (
+        {recipe.instructions ? (
+          recipe.instructions.map((step, index) => (
             <li key={index} className="text-gray-600 mb-2">
               {step}
             </li>
           ))
         ) : (
-          <p className="text-gray-600">No steps available.</p>
+          <p className="text-gray-600">No instructions available.</p>
         )}
       </ol>
     </div>
