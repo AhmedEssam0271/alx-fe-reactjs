@@ -1,5 +1,5 @@
-// import React from "react";
-import SearchBar from "./components/Search";
+import SearchBar from "./components/SearchBar";
+import "./index.css";
 
 function App() {
   return (
