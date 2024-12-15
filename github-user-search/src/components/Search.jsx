@@ -17,9 +17,13 @@ const SearchBar = () => {
 
     try {
       const response = await fetchUserData({ username, location, minRepos });
-      setUsers(response.data.items);
+      if (response.data.items.length === 0) {
+        setError("No users found matching your criteria.");
+      } else {
+        setUsers(response.data.items);
+      }
     } catch {
-      setError("Looks like we cant find any users matching your criteria");
+      setError("Error fetching data from GitHub. Please try again.");
     } finally {
       setLoading(false);
     }
