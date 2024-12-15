@@ -17,7 +17,7 @@ const handleSubmit = async (e) => {
     const response = await fetchUserData(username);
     setUser(response.data);
   } catch {
-    setError("Looks like we can’t find the user.");
+    setError("Looks like we cant find the user");
   } finally {
     setLoading(false);
   }
