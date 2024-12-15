@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://api.github.com",
+  baseURL: "https://api.github.com/search/users?q",
   headers: {
     Authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`,
   },
