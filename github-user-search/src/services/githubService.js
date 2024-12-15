@@ -8,8 +8,9 @@ const api = axios.create({
 });
 
 export const fetchUserData = ({ username, location, minRepos }) => {
-  let apiUrl = `/search/users?q=${username}`;
-  if (location) apiUrl += `+location:${location}`;
-  if (minRepos) apiUrl += `+repos:>=${minRepos}`;
+  let query = `${username}`;
+  if (location) query += `+location:${location}`;
+  if (minRepos) query += `+repos:>=${minRepos}`;
+  const apiUrl = `/search/users?q=${query}`;
   return api.get(apiUrl);
 };
