@@ -1,4 +1,4 @@
-import SearchBar from "./components/SearchBar";
+import SearchBar from "./components/Search";
 import "./index.css";
 
 function App() {
