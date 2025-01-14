@@ -18,7 +18,10 @@ const SearchBar = () => {
     try {
       const response = await fetchUserData({ username, location, minRepos });
       if (response.data.items.length === 0) {
-        setError("No users found matching your criteria.");
+        setError(
+          "No users found matching your criteria.",
+          "Looks like we cant find the user"
+        );
       } else {
         setUsers(response.data.items);
       }
